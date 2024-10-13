@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Projects {
+  userId      String?
+  projectname String
+  headerTitle String        @default("")
+  description String        @default("")
+  projectImg  String        @default("")
+  id          String        @id @unique @default(uuid())
+  createdAt   DateTime      @default(now())
+  User        User?         @relation(fields: [userId], references: [id])
+  Testimonial Testimonial[]
+}
+
+model Testimonial {
+  projectsId String?
+  id         String    @id @unique @default(uuid())
+  title      String
+  email      String
+  isLiked Boolean @default(false)
+  isArchived Boolean @default(false)
+  authorname String
+  description String
+  createdAt  DateTime  @default(now())
+  socialLink String    @default("")
+  Projects   Projects? @relation(fields: [projectsId], references: [id])
+}
+
+model User {
+  id           String     @id @unique @default(uuid())
+  username     String
+  userpassword String
+  useremail    String     @unique
+  verified     Boolean    @default(false)
+  Projects     Projects[]
+}
