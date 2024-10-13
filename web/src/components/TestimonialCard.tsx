@@ -1,9 +1,4 @@
 import { FaRegStar } from "react-icons/fa6";
-import { baseurl } from "../webconst";
-import { AiFillCodeSandboxCircle } from "react-icons/ai";
-import axios from "axios";
-import { useRecoilValue } from "recoil";
-import { testimonialAtom } from "../atoms/testimonialatom";
 import { formatDate } from "../utils/dateformat";
 
 export function TestimonialCard({ testimonial }: { testimonial: any }) {

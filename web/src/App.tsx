@@ -1,10 +1,5 @@
 import "./App.css";
-import {
-  Router,
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BasePage } from "./pages/base.page";
 import { SigninPage } from "./pages/auth/signin";
 import { SignUpPage } from "./pages/auth/signup";

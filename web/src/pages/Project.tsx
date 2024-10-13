@@ -3,21 +3,18 @@ import { AppBar } from "../components/Appbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { baseurl } from "../webconst";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { loadingatom, messageAtom, openAtom } from "../atoms/utilatoms";
-import { projectDetailByIdAtom } from "../atoms/projectatom";
-import { CustomSnackbar } from "../components/Snackbar";
-import { CustomButton } from "../components/Buttoncompo";
+import { useSetRecoilState } from "recoil";
+import { loadingatom } from "../atoms/utilatoms";
 import { ProjectLeft } from "../components/ProjectLeft";
 import { ProjectRight } from "../components/ProjectRight";
 
 export function ProjectView() {
   const param = useParams();
 
-  // atom
-  const [message, setMessage] = useRecoilState(messageAtom);
-  const [open, setOpen] = useRecoilState(openAtom);
-  const [loading, setLoading] = useRecoilState(loadingatom);
+  // // atom
+  // const [message, setMessage] = useRecoilState(messageAtom);
+  // const [open, setOpen] = useRecoilState(openAtom);
+  const setLoading = useSetRecoilState(loadingatom);
   const [project, setProject] = useState({});
 
   // variable

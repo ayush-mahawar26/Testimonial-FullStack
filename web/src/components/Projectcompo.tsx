@@ -6,7 +6,7 @@ import { baseurl } from "../webconst";
 import { loadingatom, messageAtom, openAtom } from "../atoms/utilatoms";
 import { CustomSnackbar } from "./Snackbar";
 import { ProjectCard, ProjectCardShimmer } from "./ProjectCard";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 export function ProjectComponent() {
   const navigate = useNavigate();
@@ -32,10 +32,10 @@ export function ProjectComponent() {
 function ProjectSection(): JSX.Element {
   const [projects, setProject] = useRecoilState(projectAtom);
   const setOpen = useSetRecoilState(openAtom);
-  const setMessage = useSetRecoilState(messageAtom);
+  // const setMessage = useSetRecoilState(messageAtom);
   const [loading, setLoading] = useRecoilState(loadingatom);
 
-  const nav = useNavigate();
+  // const nav = useNavigate();
 
   async function getProjects() {
     setLoading(true);

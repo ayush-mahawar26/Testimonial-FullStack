@@ -1,9 +1,6 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { projectDetailByIdAtom } from "../atoms/projectatom";
-import { loadingatom, openDailog } from "../atoms/utilatoms";
-import { baseurl } from "../webconst";
-import { AppBar } from "../components/Appbar";
-import { CustomButton } from "../components/Buttoncompo";
+import { openDailog } from "../atoms/utilatoms";
 import { CustomDailog } from "../components/DailogBox";
 
 export function AddReviewPage() {

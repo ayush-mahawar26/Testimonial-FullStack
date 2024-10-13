@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { TestimonialCard } from "./TestimonialCard";
 import { baseurl } from "../webconst";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
 import { loadingatom, messageAtom, openAtom } from "../atoms/utilatoms";
@@ -13,7 +13,7 @@ export function ProjectRight() {
   const param = useParams();
 
   const [testimomial, settestimonial] = useRecoilState(testimonialAtom);
-  const [loading, setLoading] = useRecoilState(loadingatom);
+  const [, setLoading] = useRecoilState(loadingatom);
   const [message, setMessage] = useRecoilState(messageAtom);
   const [open, setOpen] = useRecoilState(openAtom);
 

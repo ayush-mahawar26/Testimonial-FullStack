@@ -1,12 +1,9 @@
-import { Divider } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { baseurl } from "../webconst";
-import { useNavigate } from "react-router";
 
 export function AppBar() {
   const [name, setName] = useState("");
-  const nav = useNavigate();
 
   async function getUserInfo() {
     const res = await axios
@@ -15,7 +12,7 @@ export function AppBar() {
           Authorization: localStorage.getItem("token"),
         },
       })
-      .catch((e) => {
+      .catch(() => {
         return;
       });
 

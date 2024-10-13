@@ -1,5 +1,5 @@
-import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import React, { useState } from "react";
+import { Dialog, DialogContent } from "@mui/material";
+import { useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   loadingatom,
@@ -7,7 +7,7 @@ import {
   openAtom,
   openDailog,
 } from "../atoms/utilatoms";
-import { projectDetailByIdAtom, projectImageAtom } from "../atoms/projectatom";
+import { projectDetailByIdAtom } from "../atoms/projectatom";
 import { EntryBoxComponent, MultiLineEntryBoxComponent } from "./Entrybox";
 import { RxCross2 } from "react-icons/rx";
 import { CustomButton, LoadingButton } from "./Buttoncompo";
