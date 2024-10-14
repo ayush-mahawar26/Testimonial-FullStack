@@ -22,7 +22,7 @@ export function MainContentReview() {
     <div className="px-20 py-32 flex flex-col justify-center items-center">
       <img
         src={
-          projectImg.length === 0
+          projectImg === ""
             ? "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd2slcw3kip6qmk.cloudfront.net%2Fmarketing%2Fblog%2F2017Q2%2Fproject-planning-header%402x.png&f=1&nofb=1&ipt=36a14ca0fd221c958e8f3fe8bf9c5a6e875f8fd77872c0946bbee4654e4c45af&ipo=images"
             : projectImg
         }
