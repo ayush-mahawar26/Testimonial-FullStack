@@ -1,4 +1,3 @@
-import { log } from "console";
 import cors from "cors";
 import express, { Express, Request, Response } from "express";
 import { authRouter } from "./controllers/auth.controller";
@@ -33,5 +32,5 @@ app.use("/api/v1/dashboard", dashboardRouter);
 app.use("/api/v1/testimonials", testimonialRoute);
 
 app.listen(process.env.PORT, () => {
-  log(`Server is running at ${process.env.PORT}`);
+  console.log(`Server is running at ${process.env.PORT}`);
 });
