@@ -8,12 +8,13 @@ import { useRecoilState } from "recoil";
 import { loadingatom, messageAtom, openAtom } from "../atoms/utilatoms";
 import { CustomSnackbar } from "./Snackbar";
 import { testimonialAtom } from "../atoms/testimonialatom";
+import { TestimonialShimmer } from "./TeatimonialShimmer";
 
 export function ProjectRight() {
   const param = useParams();
 
   const [testimomial, settestimonial] = useRecoilState(testimonialAtom);
-  const [, setLoading] = useRecoilState(loadingatom);
+  const [loading, setLoading] = useRecoilState(loadingatom);
   const [message, setMessage] = useRecoilState(messageAtom);
   const [open, setOpen] = useRecoilState(openAtom);
 
@@ -48,7 +49,9 @@ export function ProjectRight() {
   useEffect(() => {
     getTestimonialByProjectId();
   }, []);
-  return (
+  return loading ? (
+    <TestimonialShimmer />
+  ) : (
     <div className="w-[70%]">
       {testimomial.map((testimomial) => {
         return <TestimonialCard testimonial={testimomial} />;
