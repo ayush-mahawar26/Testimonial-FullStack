@@ -3,12 +3,14 @@ import { TestimonialCard } from "./TestimonialCard";
 import { baseurl } from "../webconst";
 import axios from "axios";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import { loadingatom, messageAtom, openAtom } from "../atoms/utilatoms";
 import { CustomSnackbar } from "./Snackbar";
 import { testimonialAtom } from "../atoms/testimonialatom";
 import { TestimonialShimmer } from "./TeatimonialShimmer";
+import { CopyBlock, dracula } from "react-code-blocks";
+import { inboxIndexAtom } from "../atoms/projectatom";
 
 export function ProjectRight() {
   const param = useParams();
@@ -17,6 +19,8 @@ export function ProjectRight() {
   const [loading, setLoading] = useRecoilState(loadingatom);
   const [message, setMessage] = useRecoilState(messageAtom);
   const [open, setOpen] = useRecoilState(openAtom);
+
+  const index = useRecoilValue(inboxIndexAtom);
 
   async function getTestimonialByProjectId() {
     setLoading(true);
@@ -49,14 +53,36 @@ export function ProjectRight() {
   useEffect(() => {
     getTestimonialByProjectId();
   }, []);
-  return loading ? (
-    <TestimonialShimmer />
+  return index === 1 ? (
+    loading ? (
+      <TestimonialShimmer />
+    ) : (
+      <div className="w-[70%]">
+        {testimomial.map((testimomial) => {
+          return <TestimonialCard testimonial={testimomial} />;
+        })}
+        <CustomSnackbar open={open} openState={setOpen} message={message} />
+      </div>
+    )
   ) : (
-    <div className="w-[70%]">
-      {testimomial.map((testimomial) => {
-        return <TestimonialCard testimonial={testimomial} />;
-      })}
-      <CustomSnackbar open={open} openState={setOpen} message={message} />
+    <div className="w-[100%]">
+      <ShowYourReview id={param["id"]!} />
+    </div>
+  );
+}
+
+function ShowYourReview({ id }: { id: string }) {
+  return (
+    <div className="w-[100%] mx-4">
+      <CopyBlock
+        theme={dracula}
+        text={`<iframe
+  width="860"
+  height="484"
+  src="http://localhost:5174/${id}"
+></iframe>`}
+        language="javascript"
+      />
     </div>
   );
 }

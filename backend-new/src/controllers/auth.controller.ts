@@ -118,7 +118,7 @@ authRouter.post("/signup", async (req: Request, res: Response) => {
       data: {
         useremail: body.useremail,
         userpassword: body.userpassword,
-        username: body.useremail,
+        username: body.username,
       },
     });
 

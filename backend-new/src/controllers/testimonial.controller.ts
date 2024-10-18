@@ -5,45 +5,42 @@ import { log } from "console";
 import { authMiddleWare } from "../middleware/auth.middleware";
 import { ApiReponse } from "../utils/response";
 import { create } from "domain";
+import test from "node:test";
 
 export const testimonialRoute = express.Router();
 
 const prisma: PrismaClient = new PrismaClient();
 
 // get all the route
-testimonialRoute.get(
-  "/:id",
-  authMiddleWare,
-  async (req: Request, res: Response) => {
-    const id: string = req.params["id"];
+testimonialRoute.get("/:id", async (req: Request, res: Response) => {
+  const id: string = req.params["id"];
 
-    if (!id) {
-      res.json(new ApiReponse(400, {}, "No projectId provided"));
-      return;
-    }
-
-    const allTestimonials = await prisma.testimonial.findMany({
-      where: {
-        projectsId: id,
-      },
-    });
-
-    if (!allTestimonials) {
-      res.json(new ApiReponse(500, {}, "Server Error Occured"));
-      return;
-    }
-
-    res.json(
-      new ApiReponse(
-        200,
-        {
-          testimonials: allTestimonials,
-        },
-        "Testimonial Fetched"
-      )
-    );
+  if (!id) {
+    res.json(new ApiReponse(400, {}, "No projectId provided"));
+    return;
   }
-);
+
+  const allTestimonials = await prisma.testimonial.findMany({
+    where: {
+      projectsId: id,
+    },
+  });
+
+  if (!allTestimonials) {
+    res.json(new ApiReponse(500, {}, "Server Error Occured"));
+    return;
+  }
+
+  res.json(
+    new ApiReponse(
+      200,
+      {
+        testimonials: allTestimonials,
+      },
+      "Testimonial Fetched"
+    )
+  );
+});
 
 // add testimonials
 testimonialRoute.post("/:id", async (req: Request, res: Response) => {

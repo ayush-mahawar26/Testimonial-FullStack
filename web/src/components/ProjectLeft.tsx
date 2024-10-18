@@ -2,7 +2,7 @@ import { useRecoilState } from "recoil";
 import { inboxIndexAtom } from "../atoms/projectatom";
 
 export function ProjectLeft() {
-  const list = ["All", "Liked", "Archieved"];
+  const list = ["All", "Show your Reviews"];
   const color = ["bg-blue-400", "bg-slate-300", "bg-red-400"];
 
   const [index, setIndex] = useRecoilState(inboxIndexAtom);
