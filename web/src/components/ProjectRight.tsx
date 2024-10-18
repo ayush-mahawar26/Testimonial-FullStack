@@ -79,7 +79,7 @@ function ShowYourReview({ id }: { id: string }) {
         text={`<iframe
   width="860"
   height="484"
-  src="http://localhost:5174/${id}"
+  src="https://testimonial-codesnippet.onrender.com/${id}"
 ></iframe>`}
         language="javascript"
       />
