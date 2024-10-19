@@ -11,9 +11,12 @@ export function BasePage() {
   const [testimonials, setTestimonials] = useState([]);
 
   async function getTestimonialByProjectId() {
+    console.log("start");
+
     const url = baseurl + `/testimonials/${projectId}`;
 
     const res = await axios.get(url);
+    console.log(res);
 
     if (res.status > 200) {
       return;
@@ -29,8 +32,8 @@ export function BasePage() {
 
   return (
     <div className="flex mx-2 justify-center">
-      {testimonials.map((testimonial) => {
-        return <CardComponent testimonial={testimonial} />;
+      {testimonials.map((e) => {
+        return <CardComponent testimonial={e} />;
       })}
     </div>
   );
