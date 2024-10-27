@@ -1,5 +1,3 @@
-import { useParams } from "react-router-dom";
-
 export function BasePage() {
   // const param = useParams();
 
