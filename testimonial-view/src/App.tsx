@@ -1,8 +1,8 @@
 import "./App.css";
-import { BasePage } from "./BasePage";
+import { BasePage } from "./pages/BasePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RecoilRoot } from "recoil";
-import { TestPage } from "./Testpage";
+import { TestPage } from "./pages/Testpage";
 
 const router = createBrowserRouter([
   {
