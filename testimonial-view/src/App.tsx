@@ -5,7 +5,7 @@ import { RecoilRoot } from "recoil";
 
 const router = createBrowserRouter([
   {
-    path: "/:id",
+    path: "/",
     element: <BasePage />,
   },
 ]);

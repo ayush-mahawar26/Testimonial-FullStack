@@ -9,7 +9,7 @@ export function BasePage() {
 
   const projectId = param["id"];
   const [testimonials, setTestimonials] = useState([]);
-  console.log(projectId);
+  // console.log(projectId);
 
   async function getTestimonialByProjectId() {
     console.log("start");
@@ -34,9 +34,10 @@ export function BasePage() {
 
   return (
     <div className="flex mx-2 justify-center">
-      {testimonials.map((e) => {
+      {/* {testimonials.map((e) => {
         return <CardComponent testimonial={e} />;
-      })}
+      })} */}
+      hello
     </div>
   );
 }
