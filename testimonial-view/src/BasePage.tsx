@@ -1,9 +1,11 @@
-export function BasePage() {
-  // const param = useParams();
+import { useParams } from "react-router-dom";
 
-  // const projectId = param["id"];
+export function BasePage() {
+  const param = useParams();
+
+  const projectId = param["id"];
   // const [testimonials, setTestimonials] = useState([]);
-  // // console.log(projectId);
+  console.log(projectId);
 
   // async function getTestimonialByProjectId() {
   //   console.log("start");
