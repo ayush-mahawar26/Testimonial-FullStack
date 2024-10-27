@@ -2,6 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BasePage } from "./Basepage";
 import { RecoilRoot } from "recoil";
+import { TestPage } from "./Testpage";
 
 function App() {
   const router = createBrowserRouter([
@@ -10,7 +11,7 @@ function App() {
       element: <BasePage />,
     },
     {
-      path: "/test",
+      path: "/test/:id",
       element: <TestPage />,
     },
   ]);
@@ -20,10 +21,6 @@ function App() {
       <RouterProvider router={router} />
     </RecoilRoot>
   );
-}
-
-function TestPage() {
-  return <div>test page</div>;
 }
 
 export default App;
