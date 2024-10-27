@@ -8,6 +8,7 @@ import { DashBoard } from "./pages/dashboard";
 import { AddProject } from "./pages/Addproject";
 import { ProjectView } from "./pages/Project";
 import { AddReviewPage } from "./pages/AddReview";
+import { GetReview } from "./pages/Reviewget";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/review/:id",
     element: <AddReviewPage />,
+  },
+  {
+    path: "review/get/:id",
+    element: <GetReview />,
   },
 ]);
 
