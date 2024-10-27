@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     element: <AddReviewPage />,
   },
   {
-    path: "review/get/:id",
+    path: "/review/get/:id",
     element: <GetReview />,
   },
 ]);
