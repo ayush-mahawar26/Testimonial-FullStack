@@ -9,11 +9,13 @@ export function BasePage() {
 
   const projectId = param["id"];
   const [testimonials, setTestimonials] = useState([]);
+  console.log(projectId);
 
   async function getTestimonialByProjectId() {
     console.log("start");
 
-    const url = baseurl + `/testimonials/${projectId}`;
+    const url = baseurl + `/${projectId}`;
+    console.log(url);
 
     const res = await axios.get(url);
     console.log(res);
