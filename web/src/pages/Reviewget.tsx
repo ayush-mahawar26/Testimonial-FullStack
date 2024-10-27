@@ -11,18 +11,24 @@ export function GetReview() {
   async function getTestimonialByProjectId() {
     console.log("start");
 
-    const url = baseurl + `/testimonials/${id}`;
-    console.log(url);
+    try {
+      const url = baseurl + `/testimonials/${id}`;
+      console.log(url);
 
-    const res = await axios.get(url);
-    console.log(res);
+      const res = await axios.get(url);
+      console.log(res);
 
-    if (res.status > 200) {
+      if (res.status > 200) {
+        return;
+      }
+
+      console.log(res.data.data.testimonials);
+      setTestimonials(res.data.data.testimonials);
+    } catch (error) {
+      console.log(error);
+
       return;
     }
-
-    console.log(res.data.data.testimonials);
-    setTestimonials(res.data.data.testimonials);
   }
 
   useEffect(() => {
