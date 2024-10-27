@@ -33,7 +33,7 @@ export function BasePage() {
       {/* {testimonials.map((e) => {
         return <CardComponent testimonial={e} />;
       })} */}
-      hello
+      {projectId}
     </div>
   );
 }
