@@ -2,17 +2,12 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BasePage } from "./Basepage";
 import { RecoilRoot } from "recoil";
-import { TestPage } from "./Testpage";
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/:id",
       element: <BasePage />,
-    },
-    {
-      path: "/test/:id",
-      element: <TestPage />,
     },
   ]);
 
