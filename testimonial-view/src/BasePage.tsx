@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
 export function BasePage() {
-  const param = useParams();
+  // const param = useParams();
 
-  const projectId = param["id"];
-  // const [testimonials, setTestimonials] = useState([]);
-  console.log(projectId);
+  // const projectId = param["id"];
+  // // const [testimonials, setTestimonials] = useState([]);
+  // console.log(projectId);
 
   // async function getTestimonialByProjectId() {
   //   console.log("start");
@@ -33,7 +33,7 @@ export function BasePage() {
       {/* {testimonials.map((e) => {
         return <CardComponent testimonial={e} />;
       })} */}
-      {projectId}
+      first page
     </div>
   );
 }
