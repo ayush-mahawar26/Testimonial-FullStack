@@ -60,7 +60,15 @@ testimonialRoute.post("/:id", async (req: Request, res: Response) => {
   });
 
   if (mailCheck.length > 0) {
-    res.json(new ApiReponse(400, {}, "Review Already given with this email"));
+    res.json(
+      new ApiReponse(
+        400,
+        {
+          mailCheck,
+        },
+        "Review Already given with this email"
+      )
+    );
     return;
   }
 

@@ -8,6 +8,8 @@ export function GetReview() {
 
   const [testimonials, setTestimonials] = useState([]);
 
+  console.log(id);
+
   async function getTestimonialByProjectId() {
     console.log("start");
 

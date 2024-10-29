@@ -99,6 +99,44 @@ authRouter.post("/signin", async (req: Request, res: Response) => {
   }
 });
 
+authRouter.get("/checktoken", async (req: Request, res: Response) => {
+  const authorizationToken = req.headers.authorization;
+
+  const token = authorizationToken!.split(" ")[1];
+  console.log(token);
+
+  if (!token) {
+    res.json(new ApiReponse(400, {}, "No token"));
+    return;
+  }
+
+  try {
+    const verify = await jwt.verify(token, process.env.JWT_SECRET!);
+    console.log(verify);
+
+    res.json(
+      new ApiReponse(
+        Code.Success,
+        {
+          data: true,
+        },
+        "Valid token"
+      )
+    );
+  } catch (e) {
+    res.json(
+      new ApiReponse(
+        Code.UserError,
+        {
+          data: false,
+        },
+        "Invalid token provided"
+      )
+    );
+    return;
+  }
+});
+
 authRouter.post("/signup", async (req: Request, res: Response) => {
   const body: userSignupType = req.body;
 
