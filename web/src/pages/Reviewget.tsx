@@ -2,6 +2,9 @@ import { useParams } from "react-router";
 import { baseurl } from "../webconst";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export function GetReview() {
   const { id } = useParams();
@@ -37,18 +40,27 @@ export function GetReview() {
     getTestimonialByProjectId();
   }, []);
 
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: testimonials.length >= 3 ? 3 : testimonials.length,
+    slidesToScroll: 1,
+  };
   return (
-    <div className="flex justify-center">
-      {testimonials.map((e) => {
-        return <CardComponent testimonial={e} />;
-      })}
+    <div className="w-3/4 m-auto mt-20">
+      <Slider {...settings}>
+        {testimonials.map((e) => {
+          return <CardComponent testimonial={e} />;
+        })}
+      </Slider>
     </div>
   );
 }
 
 export function CardComponent({ testimonial }: { testimonial: any }) {
   return (
-    <div className="text-slate-300 p-5 bg-slate-900 m-2 rounded-lg text-wrap w-[33%]">
+    <div className="text-slate-300 p-5 bg-slate-900 m-2 rounded-lg">
       <div className="flex">
         <Avatar name={testimonial["authorname"]} />
         <div className="px-2 text-wrap flex flex-col items-start">

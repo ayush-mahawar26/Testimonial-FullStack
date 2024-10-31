@@ -27,6 +27,9 @@ export function BasePage() {
   async function handleToken() {
     const token = localStorage.getItem("token");
     const isValid: Boolean = await getValidToken(token!);
+    // const isValid: Boolean = true;
+    console.log(isValid);
+
     if (token && isValid === true) {
       navigate("/dashboard");
     } else {
