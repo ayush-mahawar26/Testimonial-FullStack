@@ -53,7 +53,7 @@ export function ProjectRight() {
   useEffect(() => {
     getTestimonialByProjectId();
   }, []);
-  return index === 1 ? (
+  return index === 0 ? (
     loading ? (
       <TestimonialShimmer />
     ) : (
@@ -79,7 +79,7 @@ function ShowYourReview({ id }: { id: string }) {
         text={`<iframe
   width="860"
   height="484"
-  src="https://testimonial-codesnippet.onrender.com/${id}"
+  src="https://testimonial-codesnippet.onrender.com/review/get/${id}"
 ></iframe>`}
         language="javascript"
       />

@@ -88,7 +88,7 @@ export function ProjectTopBar({ projectDetail }: { projectDetail: any }) {
                 }}
               >
                 <p className="hover:cursor-pointer">
-                  http://localhost:5173/review/{projectId}
+                  https://testimonial-fullstack.onrender.com/review/{projectId}
                 </p>
               </div>
             </div>
