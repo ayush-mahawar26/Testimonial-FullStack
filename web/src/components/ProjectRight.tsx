@@ -77,9 +77,9 @@ function ShowYourReview({ id }: { id: string }) {
       <CopyBlock
         theme={dracula}
         text={`<iframe
-  width="860"
+  width="100%"
   height="484"
-  src="https://testimonial-codesnippet.onrender.com/review/get/${id}"
+  src="https://testimonial-fullstack.onrender.com/review/get/${id}"
 ></iframe>`}
         language="javascript"
       />

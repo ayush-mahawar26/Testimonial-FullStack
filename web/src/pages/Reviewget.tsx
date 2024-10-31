@@ -11,8 +11,6 @@ export function GetReview() {
 
   const [testimonials, setTestimonials] = useState([]);
 
-  console.log(id);
-
   async function getTestimonialByProjectId() {
     console.log("start");
 
@@ -60,7 +58,7 @@ export function GetReview() {
 
 export function CardComponent({ testimonial }: { testimonial: any }) {
   return (
-    <div className="text-slate-300 p-5 bg-slate-900 m-2 rounded-lg">
+    <div className="text-slate-300 p-5 bg-slate-900 m-2 rounded-lg h-[100%]">
       <div className="flex">
         <Avatar name={testimonial["authorname"]} />
         <div className="px-2 text-wrap flex flex-col items-start">
