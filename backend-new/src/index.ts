@@ -15,7 +15,7 @@ const app: Express = express();
 const corsOptions = {
   origin: "*",
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
