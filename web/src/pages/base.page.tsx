@@ -12,6 +12,7 @@ export function BasePage() {
       const res = await axios.get(url, {
         headers: {
           Authorization: token,
+          "Access-Control-Allow-Origin": "*",
         },
       });
 
@@ -33,6 +34,7 @@ export function BasePage() {
     if (token && isValid === true) {
       navigate("/dashboard");
     } else {
+      localStorage.removeItem("token");
       navigate("/auth/signin");
     }
   }
