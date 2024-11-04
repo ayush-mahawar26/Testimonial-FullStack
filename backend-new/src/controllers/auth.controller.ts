@@ -102,7 +102,12 @@ authRouter.post("/signin", async (req: Request, res: Response) => {
 authRouter.get("/checktoken", async (req: Request, res: Response) => {
   const authorizationToken = req.headers.authorization;
 
-  const token = authorizationToken!.split(" ")[1];
+  if (!authorizationToken) {
+    res.json(new ApiReponse(400, {}, "No token"));
+    return;
+  }
+
+  const token = authorizationToken.split(" ")[1];
   console.log(token);
 
   if (!token) {
